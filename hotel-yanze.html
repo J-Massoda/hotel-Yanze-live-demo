@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HOTEL YANZE — Boutique Comfort in Buea</title>
+  <meta name="description" content="HOTEL YANZE — Boutique 4.8★ hotel in Buea. Book rooms, explore amenities, and reserve a rooftop experience." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#071233;
+      --gold:#CDA74B;
+      --cream:#FBF8F5;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --radius:12px;
+      --glass: rgba(255,255,255,0.06);
+      --max-width:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      color:#0b1220;
+      background:linear-gradient(180deg,var(--cream),#fff);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+
+    /* Header */
+    header{position:fixed;top:0;left:0;right:0;z-index:40;backdrop-filter: blur(6px);background:rgba(255,255,255,0.6);box-shadow:0 6px 18px rgba(11,18,35,0.06)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--navy),#08264a);display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;font-family:Merriweather,serif
+    }
+    .site-title{font-family:Merriweather,serif;font-size:18px;margin:0;color:var(--navy)}
+    nav{display:flex;gap:18px;align-items:center}
+    .nav-links{display:flex;gap:14px}
+    .cta{background:var(--gold);padding:10px 14px;border-radius:10px;color:#071233;font-weight:600;box-shadow:0 6px 14px rgba(205,167,75,0.16)}
+    .phone-link{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:8px;border:1px solid rgba(11,18,35,0.06);background:white}
+
+    /* Hero */
+    .hero{margin-top:84px;display:grid;grid-template-columns:1fr;align-items:center}
+    .hero-inner{display:flex;gap:40px;align-items:center;padding:48px 0}
+    .hero-left{flex:1;max-width:640px}
+    .eyebrow{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,var(--gold),#e8c57c);font-weight:600;font-size:13px;color:#071233;margin-bottom:14px}
+    h1{font-family:Merriweather,serif;font-size:42px;margin:0 0 12px;color:var(--navy);line-height:1.05}
+    p.lead{color:var(--muted);font-size:18px;margin:0 0 22px}
+    .hero-ctas{display:flex;gap:12px;margin-top:8px}
+    .btn{padding:12px 16px;border-radius:10px;border:none;cursor:pointer;font-weight:600}
+    .btn-primary{background:var(--navy);color:white;box-shadow:0 8px 20px rgba(7,18,51,0.12)}
+    .btn-outline{background:transparent;border:2px solid var(--navy);color:var(--navy)}
+    .hero-right{flex:1;display:flex;justify-content:center}
+    .hero-img{width:100%;max-width:680px;height:420px;border-radius:18px;overflow:hidden;box-shadow:0 20px 40px rgba(11,18,35,0.08)}
+    .hero-img img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.03) saturate(0.95)}
+
+    /* Sections */
+    section{padding:56px 0}
+    .section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+    h2{font-family:Merriweather,serif;color:var(--navy);margin:0;font-size:26px}
+
+    /* About */
+    .about-grid{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center}
+    .card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:0 10px 30px rgba(11,18,35,0.04)}
+    .about-img{height:220px;border-radius:10px;overflow:hidden}
+    .about-img img{width:100%;height:100%;object-fit:cover}
+
+    /* Rooms */
+    .rooms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .room-card{background:linear-gradient(180deg,#fff,#fbfbfb);border-radius:12px;padding:12px;box-shadow:0 10px 28px rgba(11,18,35,0.04);transition:transform .28s ease}
+    .room-card:hover{transform:translateY(-6px)}
+    .room-thumb{height:160px;border-radius:10px;overflow:hidden;margin-bottom:10px}
+    .room-thumb img{width:100%;height:100%;object-fit:cover}
+    .room-title{font-weight:700;margin:0 0 6px}
+    .room-meta{color:var(--muted);font-size:14px;margin-bottom:8px}
+    .price{font-weight:700;color:var(--navy)}
+
+    /* Amenities */
+    .amenities-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .amenity{display:flex;gap:12px;align-items:center;padding:14px;background:linear-gradient(90deg,#fff,#fcfcfc);border-radius:10px;box-shadow:0 8px 20px rgba(11,18,35,0.03)}
+    .amenity-icon{width:44px;height:44px;border-radius:8px;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+    /* Gallery */
+    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+    .gallery-grid img{width:100%;height:160px;object-fit:cover;border-radius:10px}
+
+    /* Reviews */
+    .review{background:linear-gradient(180deg,#fff,#fafafa);padding:14px;border-radius:12px;box-shadow:0 8px 22px rgba(11,18,35,0.03)}
+    .stars{color:var(--gold);font-weight:700;margin-right:8px}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:20px}
+    .form-row{display:flex;flex-direction:column;gap:8px;margin-bottom:10px}
+    input,textarea,select{padding:12px;border-radius:10px;border:1px solid rgba(11,18,35,0.08);font-size:15px}
+    textarea{min-height:120px;resize:vertical}
+    .map-embed{width:100%;height:300px;border-radius:10px;overflow:hidden}
+
+    /* Footer */
+    footer{padding:28px 0;background:#062034;color:#fff}
+    footer .container{display:flex;justify-content:space-between;align-items:center}
+    .social a{margin-left:10px;color:var(--gold)}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .about-grid,.contact-grid{grid-template-columns:1fr}
+      .rooms-grid{grid-template-columns:repeat(2,1fr)}
+      .gallery-grid{grid-template-columns:repeat(2,1fr)}
+      .hero-inner{flex-direction:column-reverse}
+      .hero-img{height:320px}
+    }
+    @media (max-width:640px){
+      .rooms-grid{grid-template-columns:1fr}
+      .amenities-grid{grid-template-columns:repeat(2,1fr)}
+      header .nav-links{display:none}
+      .menu-toggle{display:inline-flex}
+    }
+
+    /* small utilities */
+    .muted{color:var(--muted)}
+    .caps{font-size:12px;letter-spacing:1px;color:var(--muted);font-weight:600}
+    .center{display:flex;justify-content:center;align-items:center}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#f7f7f7;color:var(--muted);font-weight:700}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav-inner">
+    <div class="brand">
+      <div class="logo">Y</div>
+      <div>
+        <div class="site-title">HOTEL YANZE</div>
+        <div style="font-size:12px;color:var(--muted)">Boutique stay — Buea</div>
+      </div>
+    </div>
+
+    <nav>
+      <div class="nav-links">
+        <a href="#rooms">Rooms</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div style="display:flex;gap:12px;align-items:center">
+        <a class="phone-link" href="tel:+237671206023">📞 +237 6 71 20 60 23</a>
+        <a class="cta" href="#contact">Book Now</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero container" aria-labelledby="hero-heading">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <span class="eyebrow">4.8 ★ — Trusted by Guests</span>
+        <h1 id="hero-heading">Experience Boutique Comfort in the Heart of Buea</h1>
+        <p class="lead">A 4.8-star stay trusted by travelers for style, comfort and exceptional service. Cozy rooms, central location and warm hospitality — perfect for business or leisure.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#contact" onclick="openBookingModal(event)">Book Now</a>
+          <a class="btn btn-outline" href="tel:+237671206023">Call Hotel</a>
+        </div>
+        <p style="margin-top:12px;color:var(--muted)">Address: First Street, by your left after Cathedral, Central Market Road, Buea</p>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-img" role="img" aria-label="Hotel image">
+          <!-- Using uploaded placeholder file path — update if moved -->
+          <img src="/mnt/data/A_grayscale_wireframe_digital_design_of_a_real_est.png" alt="Hotel Yanze placeholder image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="container" id="about">
+    <div class="section-head">
+      <h2>About Hotel Yanze</h2>
+      <div class="caps">Warm boutique hospitality</div>
+    </div>
+
+    <div class="about-grid">
+      <div class="card">
+        <p style="margin-top:0;color:var(--muted)">Hotel Yanze offers comfortable, boutique-style rooms in a central Buea location — minutes from the cathedral and central market. Our focus is on comfortable beds, friendly service and excellent value. Ideal for city visitors, business travelers and families.</p>
+        <ul style="color:var(--muted)">
+          <li><strong>Central location:</strong> walking distance to market & cathedral</li>
+          <li><strong>24/7 reception:</strong> we welcome guests anytime</li>
+          <li><strong>Flexible check-in:</strong> easy reservations and quick service</li>
+        </ul>
+        <div style="margin-top:12px">
+          <a class="btn btn-primary" href="#rooms">View rooms</a>
+          <a style="margin-left:10px" class="btn btn-outline" href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <div class="card about-img">
+        <img src="/mnt/data/A_grayscale_wireframe_digital_design_of_a_real_est.png" alt="Hotel interior placeholder">
+      </div>
+    </div>
+  </section>
+
+  <!-- ROOMS -->
+  <section class="container" id="rooms">
+    <div class="section-head">
+      <h2>Rooms & Suites</h2>
+      <div class="caps">Comfortable stays for every traveler</div>
+    </div>
+
+    <div class="rooms-grid">
+      <!-- Room 1 -->
+      <article class="room-card" aria-labelledby="r1">
+        <div class="room-thumb"><img src="/mnt/data/A_grayscale_wireframe_digital_design_of_a_real_est.png" alt="Standard room"></div>
+        <h3 id="r1" class="room-title">Standard Room</h3>
+        <div class="room-meta">1 double bed · Free Wi-Fi · Shared Bathroom</div>
+        <div class="price">From FCFA 8,000 / night</div>
+        <div style="margin-top:8px">
+          <button class="btn btn-primary" onclick="openBookingModal(event)">Check Availability</button>
+        </div>
+      </article>
+
+      <!-- Room 2 -->
+      <article class="room-card" aria-labelledby="r2">
+        <div class="room-thumb"><img src="/mnt/data/A_grayscale_wireframe_digital_design_of_a_real_est.png" alt="Deluxe room"></div>
+        <h3 id="r2" class="room-title">Deluxe Room</h3>
+        <div class="room-meta">1 queen bed · Ensuite Bathroom · City View</div>
+        <div class="price">From FCFA 12,000 / night</div>
+        <div style="margin-top:8px">
+          <button class="btn btn-primary" onclick="openBookingModal(event)">Check Availability</button>
+        </div>
+      </article>
+
+      <!-- Room 3 -->
+      <article class="room-card" aria-labelledby="r3">
+        <div class="room-thumb"><img src="/mnt/data/A_grayscale_wireframe_digital_design_of_a_real_est.png" alt="Executive room"></div>
+        <h3 id="r3" class="room-title">Executive Suite</h3>
+        <div class="room-meta">King bed · Private lounge · Complimentary breakfast</div>
+        <div class="price">From FCFA 20,000 / night</div>
+        <div style="margin-top:8px">
+          <button class="btn btn-primary" onclick="openBookingModal(event)">Check Availability</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- AMENITIES -->
+  <section class="container" id="amenities">
+    <div class="section-head">
+      <h2>Amenities</h2>
+      <div class="caps">Everything you need for a comfortable stay</div>
+    </div>
+
+    <div class="amenities-grid">
+      <div class="amenity"><div class="amenity-icon">Wi</div><div><strong>Fast WiFi</strong><div class="muted">Reliable connection throughout</div></div></div>
+      <div class="amenity"><div class="amenity-icon">24</div><div><strong>24/7 Reception</strong><div class="muted">We welcome guests anytime</div></div></div>
+      <div class="amenity"><div class="amenity-icon">🛏</div><div><strong>Clean Rooms</strong><div class="muted">Daily housekeeping available</div></div></div>
+      <div class="amenity"><div class="amenity-icon">📍</div><div><strong>Central Location</strong><div class="muted">Close to market & cathedral</div></div></div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="container" id="gallery">
+    <div class="section-head">
+      <h2>Gallery</h2>
+      <div class="caps">A few snapshots</div>
+    </div>
+    <div class="gallery-grid card">
+      <img src="/mnt/data/A_grayscale_wireframe_digital_design_of_a_real_est.png" alt="gallery 1">
+      <img src="/mnt/data/A_grayscale_wireframe_digital_design_of_a_real_est.png" alt="gallery 2">
+      <img src="/mnt/data/A_grayscale_wireframe_digital_design_of_a_real_est.png" alt="gallery 3">
+      <img src="/mnt/data/A_grayscale_wireframe_digital_design_of_a_real_est.png" alt="gallery 4">
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="container" id="reviews">
+    <div class="section-head">
+      <h2>Guest Reviews</h2>
+      <div class="caps">Rated 4.8 by guests</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+      <div class="review card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <div class="stars">★★★★☆</div>
+          <div class="muted">4.8 · 16 reviews</div>
+        </div>
+        <p style="margin:0;color:var(--muted)">"Lovely stay, clean rooms and very helpful staff. Great location."</p>
+      </div>
+
+      <div class="review card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <div class="stars">★★★★★</div>
+          <div class="muted">5.0 · 8 reviews</div>
+        </div>
+        <p style="margin:0;color:var(--muted)">"Comfortable bed, quick check-in, strong WiFi."</p>
+      </div>
+
+      <div class="review card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <div class="stars">★★★★☆</div>
+          <div class="muted">4.5 · 10 reviews</div>
+        </div>
+        <p style="margin:0;color:var(--muted)">"Friendly staff, good value for the area."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION + CONTACT -->
+  <section class="container" id="contact">
+    <div class="section-head">
+      <h2>Contact & Location</h2>
+      <div class="caps">Get in touch or find us</div>
+    </div>
+
+    <div class="contact-grid">
+      <div class="card">
+        <h3 style="margin-top:0">Contact</h3>
+        <p class="muted">Phone: <a href="tel:+237671206023">+237 6 71 20 60 23</a></p>
+        <p class="muted">Instagram: <a href="https://instagram.com" target="_blank" rel="noreferrer">instagram.com</a></p>
+
+        <form id="contactForm" onsubmit="submitContact(event)">
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input id="name" required placeholder="Your full name">
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com">
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="How can we help?"></textarea>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center">
+            <button class="btn btn-primary" type="submit">Send Message</button>
+            <a class="btn btn-outline" href="https://wa.me/237671206023?text=Hello%20Hotel%20Yanze%2C%20I%20have%20a%20question" target="_blank">WhatsApp</a>
+          </div>
+          <div id="contactFeedback" style="margin-top:10px;color:var(--muted);font-size:14px"></div>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0">Location</h3>
+        <div class="muted" style="margin-bottom:8px">Plus Code: 5733+99 Buea</div>
+        <div class="map-embed">
+          <!-- Replace src with real embed if desired -->
+          <iframe width="100%" height="100%" frameborder="0" style="border:0"
+            src="https://maps.google.com/maps?q=5733%2B99%20Buea&output=embed" allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div>
+      <div style="font-family:Merriweather,serif;font-weight:700;color:var(--gold);font-size:16px">HOTEL YANZE</div>
+      <div style="color:#dbe6f3;margin-top:6px">First Street, Central Market Road, Buea</div>
+    </div>
+    <div style="text-align:right">
+      <div style="color:#dbe6f3">Follow us</div>
+      <div class="social" style="margin-top:8px"><a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a></div>
+      <div style="margin-top:8px;color:#dbe6f3;font-size:13px">© Hotel Yanze <span id="year"></span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- Booking modal (simple) -->
+<div id="bookingModal" style="position:fixed;inset:0;background:rgba(3,6,12,0.45);display:none;align-items:center;justify-content:center;z-index:60">
+  <div style="width:94%;max-width:640px;background:white;border-radius:14px;padding:18px;box-shadow:0 40px 80px rgba(11,18,35,0.4)">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h3 style="margin:0">Book a Room</h3>
+      <button onclick="closeBookingModal()" style="background:transparent;border:none;font-size:18px;cursor:pointer">✕</button>
+    </div>
+    <form id="bookingForm" onsubmit="submitBooking(event)" style="margin-top:12px;display:flex;flex-direction:column;gap:10px">
+      <input id="bname" placeholder="Full name" required>
+      <input id="bphone" placeholder="Phone or WhatsApp" required>
+      <select id="broom">
+        <option>Standard Room</option>
+        <option>Deluxe Room</option>
+        <option>Executive Suite</option>
+      </select>
+      <div style="display:flex;gap:8px">
+        <input id="bcheckin" type="date" required style="flex:1">
+        <input id="bcheckout" type="date" required style="flex:1">
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-primary" type="submit">Request Booking</button>
+        <button type="button" class="btn btn-outline" onclick="closeBookingModal()">Cancel</button>
+      </div>
+      <div id="bookingFeedback" style="color:var(--muted);font-size:14px"></div>
+    </form>
+  </div>
+</div>
+
+<script>
+  // small interactive behaviour
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function openBookingModal(e){
+    e && e.preventDefault && e.preventDefault();
+    document.getElementById('bookingModal').style.display = 'flex';
+  }
+  function closeBookingModal(){
+    document.getElementById('bookingModal').style.display = 'none';
+  }
+
+  function submitContact(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    // Simple client-side simulation; replace with API endpoint
+    document.getElementById('contactFeedback').textContent = "Thanks " + (name||'there') + "! We received your message and will reply soon.";
+    document.getElementById('contactForm').reset();
+    // TODO: send to your server or Formspree / email endpoint
+  }
+
+  function submitBooking(e){
+    e.preventDefault();
+    const n = document.getElementById('bname').value.trim();
+    const p = document.getElementById('bphone').value.trim();
+    const room = document.getElementById('broom').value;
+    const ci = document.getElementById('bcheckin').value;
+    const co = document.getElementById('bcheckout').value;
+    document.getElementById('bookingFeedback').textContent = "Thanks " + (n||'guest') + "! Your request for " + room + " has been noted. The hotel will confirm availability via phone.";
+    document.getElementById('bookingForm').reset();
+    setTimeout(closeBookingModal,2200);
+    // TODO: POST to an API / Zapier / email pipeline
+  }
+
+  // smooth scroll for anchors
+  (function(){
+    const links = document.querySelectorAll('a[href^="#"]');
+    for(const a of links){
+      a.addEventListener('click', function(e){
+        const id = this.getAttribute('href').slice(1);
+        if(!id) return;
+        e.preventDefault();
+        document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    }
+  })();
+
+  // basic lazy loading for images (native)
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('img').forEach(img => { img.loading = 'lazy'; });
+  });
+
+</script>
+</body>
+</html>
